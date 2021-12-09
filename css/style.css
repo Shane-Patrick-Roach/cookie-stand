@@ -16,12 +16,11 @@ body {
 #sal {
   margin: 30px;
 }
+
 h1 {
   font-family: 'Roboto mono', monospace;
   font-size: 50px;
   padding-bottom: 10px;
-  font-weight: bolder;
-  
 }
 
 a {
@@ -41,14 +40,15 @@ ul {
 
 table {
   border: 1px solid black;
-  padding: 10px;
+  padding: 30px;
   padding-left: 25%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 td,th,tr {
   border: 1px solid black;
-  padding: 5px;
-  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+ 
 }
 
 main {
@@ -65,14 +65,15 @@ thead {
 
 p {
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight:lighter;
+  font-size: 15px;
 }
 
 main li {
   font-family: 'Roboto mono', monospace;
   list-style-type: none;
   font-size: 20px;
-  padding: 20px;
+  padding: 30px;
+
 }
 
 
@@ -125,14 +126,14 @@ h3{
   font-weight: bold;
   padding-bottom: 20px;
   padding-top: 20px;
-  font-size: 20px;
+  font-size: 25px;
 
 }
 
 
 
 footer{
-  height: 300px;
+  height: 500%;
   background-color: rgb(255, 255, 255);
 }
 
@@ -147,3 +148,39 @@ footer p {
   padding: 30px;
   padding-top: 170px;
 }
+
+
+#forms {
+  padding: 30px;
+}
+
+#add-store{
+  padding: 30px;
+  background-color: rgb(176, 189, 189);
+  border: bisque;
+  border-radius: 25px;
+}
+
+legend {
+  font-family: 'Roboto Mono', monospace;
+  padding: 20px;
+  font-size: 25px;
+
+}
+
+label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  display: block;
+}
+
+input,
+label {
+  margin: .4rem 0;
+}
+
+
+.output {
+  font: 1rem 'Fira Sans', sans-serif;
+}
+

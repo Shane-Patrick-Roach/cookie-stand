@@ -2,9 +2,12 @@
 
 //console.log('hello world');
 
+
+//Global variables
 let time = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// SEATTLE cookie store
+
+// Constructor Function with inputs Name, min ,max, and average cookies per customer
 
 function Cookiestand(locationName, minHourCust, maxHourCust, avgCookiesCust) {
   this.name = locationName;
@@ -25,7 +28,7 @@ Cookiestand.prototype.getCust = function () {
   for (let i = 0; i < time.length; i++) {
     this.iLoveCookies[i] = parseInt((getRandomCustomer(this.minHourCust, this.maxHourCust)) * this.avgCookiesCust);
   }
-  console.log(this.iLoveCookies);
+  //console.log(this.iLoveCookies);
 
   //console.log(Number(Math.round(this.time)));
 
@@ -34,11 +37,11 @@ Cookiestand.prototype.getCust = function () {
     this.total += this.iLoveCookies[p];
   }
 
-  console.log(Math.round(this.total));
+  //console.log(Math.round(this.total));
   //return (this.iLoveCookies)
 }
 
-
+// Create new instance for each city
 let seattle = new Cookiestand('seattle', 23, 65, 6.3);
 let tokyo = new Cookiestand('tokyo', 3, 24, 1.2);
 let dubai = new Cookiestand('dubai', 11, 38, 3.7);
@@ -46,8 +49,9 @@ let paris = new Cookiestand('paris', 20, 38, 2.3);
 let lima = new Cookiestand('lima', 2, 16, 4.6);
 
 
-//Random Number Generator for Customers each hour (helper function)
 
+
+//Random Number Generator for Customers each hour (helper function)
 function getRandomCustomer(min, max) {
   //min will be set for each location
   //max will be set for each loaction
@@ -55,8 +59,7 @@ function getRandomCustomer(min, max) {
 }
 
 
-
-
+// Render Header 
 function renderHeader() {
   
   let table = document.getElementById('sales-table');
@@ -91,9 +94,6 @@ Cookiestand.prototype.render = function () {
 
   let table = document.getElementById('sales-table');
 
-  
-  
-  
   let tr = document.createElement('tr');
   //tr.textContent = `${this.name}`;
   table.appendChild(tr);
@@ -114,9 +114,6 @@ Cookiestand.prototype.render = function () {
   let tf = document.createElement('tf')
   tf.textContent = `${this.total}`;
   tr.appendChild(tf);
-
-
-
 }
 
 
@@ -131,5 +128,38 @@ paris.getCust();
 paris.render();
 lima.getCust();
 lima.render();
+
+
+// Step 1: Grab element we want to listen too
+const storeForm = document.getElementById('add-store');
+
+
+// Step 3: write out our callback function/event handler
+
+function handleSubmit (event){
+  event.preventDefault();
+  //console.log('hello');
+
+  let name = event.target.name.value;
+  //console.log(name)
+  let min = +event.target.min.value;
+  //console.log(min)
+  let max = +event.target.max.value;
+  //console.log(max)
+  let avg = +event.target.avg.value;
+  //console.log(avg)
+
+  let newStore = new Cookiestand(name, min, max, avg);
+  newStore.getCust();
+  //console.log(newStore.iLoveCookies)
+  
+  newStore.render();
+}
+
+
+// Step 2: Add event listener to the element we want to listen to
+storeForm.addEventListener('submit', handleSubmit);
+
+
 
 
