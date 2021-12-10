@@ -5,6 +5,9 @@
 
 //Global variables
 let time = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let allStore = [];
+let totalArr = [];
+let grandTotal = 0;
 
 
 // Constructor Function with inputs Name, min ,max, and average cookies per customer
@@ -14,6 +17,7 @@ function Cookiestand(locationName, minHourCust, maxHourCust, avgCookiesCust) {
   this.minHourCust = minHourCust;
   this.maxHourCust = maxHourCust;
   this.avgCookiesCust = avgCookiesCust;
+  allStore.push(this);
 }
 
 Cookiestand.prototype.getCust = function () {
@@ -41,6 +45,9 @@ Cookiestand.prototype.getCust = function () {
   //return (this.iLoveCookies)
 }
 
+
+
+
 // Create new instance for each city
 let seattle = new Cookiestand('seattle', 23, 65, 6.3);
 let tokyo = new Cookiestand('tokyo', 3, 24, 1.2);
@@ -61,7 +68,7 @@ function getRandomCustomer(min, max) {
 
 // Render Header 
 function renderHeader() {
-  
+
   let table = document.getElementById('sales-table');
 
 
@@ -81,7 +88,7 @@ function renderHeader() {
 
     tr.appendChild(td);
   }
-  
+
   let tf = document.createElement('tf')
   tf.textContent = 'Daily Location Total';
   tr.appendChild(tf);
@@ -97,11 +104,11 @@ Cookiestand.prototype.render = function () {
   let tr = document.createElement('tr');
   //tr.textContent = `${this.name}`;
   table.appendChild(tr);
-  
+
   let thead = document.createElement('thead');
   thead.textContent = `${this.name}`;
   tr.appendChild(thead);
-  
+
 
   for (let i = 0; i < time.length; i++) {
     let td = document.createElement('td');
@@ -117,6 +124,45 @@ Cookiestand.prototype.render = function () {
 }
 
 
+//Render Footer
+
+function renderFooter() {
+  
+  addition();
+
+  let table = document.getElementById('sales-table');
+
+
+  let tfoot = document.createElement('tfoot');
+
+  table.appendChild(tfoot);
+
+  let tr = document.createElement('tr');
+  //tr.textContent = 'hello';
+  tfoot.appendChild(tr);
+
+  let th = document.createElement('th');
+  th.textContent = 'Total';
+
+  tr.appendChild(th);
+
+  for (let i = 0; i < time.length; i++) {
+    let td = document.createElement('th');
+    td.textContent = totalArr[i];
+    //console.log(th.textContent);
+
+    tr.appendChild(td);
+  }
+
+  let tf = document.createElement('tf');
+  tf.textContent = grandTotal;
+  tr.appendChild(tf);
+
+}
+
+
+
+
 renderHeader();
 seattle.getCust();
 seattle.render();
@@ -128,6 +174,21 @@ paris.getCust();
 paris.render();
 lima.getCust();
 lima.render();
+renderFooter();
+
+
+// totalArr.push(seattle.iLoveCookies);
+// totalArr.push(tokyo.iLoveCookies);
+
+
+// console.table(totalArr)
+
+// let final = [];
+
+
+
+// console.log(final);
+
 
 
 // Step 1: Grab element we want to listen too
@@ -136,7 +197,7 @@ const storeForm = document.getElementById('add-store');
 
 // Step 3: write out our callback function/event handler
 
-function handleSubmit (event){
+function handleSubmit(event) {
   event.preventDefault();
   //console.log('hello');
 
@@ -151,14 +212,38 @@ function handleSubmit (event){
 
   let newStore = new Cookiestand(name, min, max, avg);
   newStore.getCust();
+
   //console.log(newStore.iLoveCookies)
   
+  document.getElementById('tfoot').remove();
+
   newStore.render();
+  renderFooter();
+
 }
 
 
 // Step 2: Add event listener to the element we want to listen to
 storeForm.addEventListener('submit', handleSubmit);
+
+
+function addition() {
+  totalArr = [];
+  grandTotal = 0;
+  //console.log(final)
+  for (let i = 0; i < time.length; i++) {
+    let hourTotal = 0;
+
+    for (let j = 0; j < allStore.length; j++) {
+      hourTotal += allStore[j].iLoveCookies[i];
+      //final.push(total);
+    }
+    grandTotal += hourTotal;
+    totalArr.push(hourTotal);
+  }
+
+}
+
 
 
 
