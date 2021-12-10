@@ -1,44 +1,149 @@
 
 
-* {
-  font-family: Georgia, 'Times New Roman', Times, serif
-}
-
-total_bottom { 
-  font-size: 20px;
-  
-}
-
-seattle_h2 {
-  font-size: 25px;
+header {
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 10px;
+  padding: 20px;
+  background-color: rgb(201, 127, 127);
+  color: rgb(30, 31, 31);
+  text-align: center;
 }
 
 body {
-  background-color: rgb(238, 212, 227);
+  background-color: rgb(250, 241, 246);
 }
 
-
+#sal {
+  margin: 30px;
+}
 h1 {
-  font-size: 40px;
+  font-family: 'Roboto mono', monospace;
+  font-size: 50px;
+  padding-bottom: 10px;
+  font-weight: bolder;
+  
 }
 
 a {
-  font-size: 30px;
+  letter-spacing: 3px;
+  font-size: 20px;
+  padding: 5px;
 }
 
 
 ul {
   margin: 60px;
   padding-bottom: 25px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family:Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
 
+
 table {
   border: 1px solid black;
+  padding: 10px;
+  padding-left: 25%;
 }
 
-td,th,thead {
+td,th,tr {
   border: 1px solid black;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  padding: 20px;
+  background-color: rgb(195, 207, 206);
+}
+
+
+
+thead {
+  text-transform: capitalize ;
+  font-size: 20px;
+}
+
+p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight:lighter;
+}
+
+main li {
+  font-family: 'Roboto mono', monospace;
+  list-style-type: none;
+  font-size: 20px;
+  padding: 20px;
+}
+
+
+
+#sec1 {
+  text-align: center;
+  padding: 30px;
+}
+
+#sec2 {
+  background-color: rgb(155, 196, 197);
+  text-align: center;
+}
+#sec2 article{
+  background-color: rgb(155, 196,197);
+  float: left;
+}
+
+#sec2 p{
+  max-width: 100%;
+}
+
+#fam {
+  max-width: 100%;
+  display: inline-block;
+  padding: 30px;
+  text-align: center;
+}
+
+
+#sec3 {
+  height: 300px;
+}
+
+#sec3 li{
+  float: left;
+  margin-left: 30px;
+  padding: 5px;
+}
+
+#sec3 img{
+  display: inline-block;
+  max-width: 200px;
+  margin: 5px;
+
+}
+
+h3{
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 20px;
+
+}
+
+
+
+footer{
+  height: 300px;
+  background-color: rgb(255, 255, 255);
+}
+
+footer p {
+  float: right;
   padding: 10px;
+}
+
+#sal2 {
+  display: inline-block;
+  width: 20%;
+  padding: 30px;
+  padding-top: 170px;
 }

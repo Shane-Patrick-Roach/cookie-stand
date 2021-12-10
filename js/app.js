@@ -120,9 +120,6 @@ Cookiestand.prototype.render = function () {
 }
 
 
-
-
-
 renderHeader();
 seattle.getCust();
 seattle.render();
