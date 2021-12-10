@@ -8,6 +8,7 @@ let time = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3
 let allStore = [];
 let totalArr = [];
 let grandTotal = 0;
+let tfoot = document.createElement('tfoot');
 
 
 // Constructor Function with inputs Name, min ,max, and average cookies per customer
@@ -18,6 +19,7 @@ function Cookiestand(locationName, minHourCust, maxHourCust, avgCookiesCust) {
   this.maxHourCust = maxHourCust;
   this.avgCookiesCust = avgCookiesCust;
   allStore.push(this);
+ 
 }
 
 Cookiestand.prototype.getCust = function () {
@@ -43,7 +45,7 @@ Cookiestand.prototype.getCust = function () {
 
   //console.log(Math.round(this.total));
   //return (this.iLoveCookies)
-}
+};
 
 
 
@@ -66,7 +68,8 @@ function getRandomCustomer(min, max) {
 }
 
 
-// Render Header 
+// Render Header
+
 function renderHeader() {
 
   let table = document.getElementById('sales-table');
@@ -89,7 +92,7 @@ function renderHeader() {
     tr.appendChild(td);
   }
 
-  let tf = document.createElement('tf')
+  let tf = document.createElement('tf');
   tf.textContent = 'Daily Location Total';
   tr.appendChild(tf);
 
@@ -118,10 +121,10 @@ Cookiestand.prototype.render = function () {
     tr.appendChild(td);
   }
 
-  let tf = document.createElement('tf')
+  let tf = document.createElement('tf');
   tf.textContent = `${this.total}`;
   tr.appendChild(tf);
-}
+};
 
 
 //Render Footer
@@ -130,10 +133,8 @@ function renderFooter() {
   
   addition();
 
+
   let table = document.getElementById('sales-table');
-
-
-  let tfoot = document.createElement('tfoot');
 
   table.appendChild(tfoot);
 
@@ -177,18 +178,6 @@ lima.render();
 renderFooter();
 
 
-// totalArr.push(seattle.iLoveCookies);
-// totalArr.push(tokyo.iLoveCookies);
-
-
-// console.table(totalArr)
-
-// let final = [];
-
-
-
-// console.log(final);
-
 
 
 // Step 1: Grab element we want to listen too
@@ -215,9 +204,11 @@ function handleSubmit(event) {
 
   //console.log(newStore.iLoveCookies)
   
-  document.getElementById('tfoot').remove();
-
+ 
   newStore.render();
+ 
+
+  tfoot.innerHTML = '';
   renderFooter();
 
 }
