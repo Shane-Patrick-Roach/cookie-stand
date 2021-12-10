@@ -17,9 +17,6 @@
   </header>
 
   <main>
-    <table id='sales-table'>
-    </table>
-
     <section id= "forms">
       <form id="add-store">
   
@@ -27,22 +24,25 @@
           <legend>New Store Information</legend>
   
           <label for="name" > Location of Store:</label>
-          <input type="text" id="name" name="name"placeholder="Name of Store" >
+          <input type="text" id="name" name="name"placeholder="Name of Store" required >
   
           <label for="min" >Minimum Number of Customers:</label>
-          <input type="number" id="min" name="min"placeholder="Minimum" >
+          <input type="number" id="min" name="min"placeholder="Minimum"required >
   
           <label for="max" >Maximum Number of Customers:</label>
-          <input type="number" id="max" name="max" placeholder="Maximum" >
+          <input type="number" id="max" name="max" placeholder="Maximum" required>
   
           <label for="avg" >Average Cookies per Customer:</label>
-          <input type="number" id="avg" name="avg" placeholder="Average" step="0.10">
+          <input type="number" id="avg" name="avg" placeholder="Average" step="0.10"required>
   
         </fieldset>
         <button type="submit">Submit</button>
       </form>
       
     </section>
+    <table id='sales-table'>
+    </table>
+
   </main>
 
 
